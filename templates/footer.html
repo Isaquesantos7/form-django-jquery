@@ -17,11 +17,37 @@
                 },
                 success: function (data) {
                     let selectMunicipio = $('#municipio');
+                    selectMunicipio.append('<option value="">----------</option>')
                     $.each(data, function(key, value) {
                         selectMunicipio.append('<option value="'+ value.index  +'">' + value.nome + '</option>');
                     });
                 }
             });
         });
+
+        $('#municipio').change(function() {
+            let municipioIndex = $(this).val();
+
+            /*limapando o select de bairros*/
+            $('#bairro').empty();  
+
+            /*requisicao ajax para obter os bairros*/
+            $.ajax({
+                url: '/ajax/obter/bairro/',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    'municipio': municipioIndex,
+                },
+                success: function(data) {
+                    let selectBairro = $('#bairro');
+                    selectBairro.append('<option value="">----------</option>')
+                    $.each(data, function(key, value) {
+                        selectBairro.append('<option value="'+ value.index  +'">' + value.nome + '</option>');
+                    });
+                }
+            });
+        })
     });
 </script>
