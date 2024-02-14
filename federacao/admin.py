@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from federacao.models import *
+
+admin.site.register(UF)
+admin.site.register(Municipio)
+admin.site.register(Bairro)
