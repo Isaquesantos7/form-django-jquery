@@ -2,7 +2,10 @@
     <div>
         <label for="uf">UF</label>
         <select class="form-control" name="uf" id="uf">
-
+            <option value="">------------</option>
+            {% for uf in lista_ufs %}
+                <option value="{{ uf.index }}">{{ uf.nome }}</option>
+            {% endfor %}
         </select>
     </div>
 
