@@ -1,0 +1,27 @@
+<script>
+    $(document).ready(function() {
+        $('#uf').change(function() {
+            let ufIndex = $(this).val();
+
+            /*limpando o select de municipios*/
+            $('#municipio').empty();
+
+            /*requisicao ajax para obter os municipios*/
+            $.ajax({
+                url: '/ajax/obter/municipio/',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    'uf': ufIndex
+                },
+                success: function (data) {
+                    let selectMunicipio = $('#municipio');
+                    $.each(data, function(key, value) {
+                        selectMunicipio.append('<option value="'+ value.index  +'">' + value.nome + '</option>');
+                    });
+                }
+            });
+        });
+    });
+</script>
