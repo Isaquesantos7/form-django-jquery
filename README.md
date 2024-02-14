@@ -9,4 +9,4 @@
 * Python
 * Sqlite3
 ## Objetivo do projeto
-* Trabalhar formulario com chamadas via post ultilizando JQuery.
+* Trabalhar formulario com chamadas via post utilizando JQuery.

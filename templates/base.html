@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+{% include 'header.html' %}
+
+<body>
+    {% block content %}
+        {% include 'formulario.html' %}
+    {% endblock %}
+
+    {% include 'footer.html' %}
+</body>
+</html>
