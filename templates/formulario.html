@@ -1,6 +1,6 @@
 <form class="form" method="post">
     {% csrf_token %}
-    <div>
+    <div class="div-form">
         <label for="uf">UF</label>
         <select class="form-control" name="uf" id="uf">
             <option value="">------------</option>
@@ -10,17 +10,19 @@
         </select>
     </div>
 
-    <div>
+    <div class="div-form">
         <label for="municipio">Municipio</label>
         <select class="form-control" name="municipio" id="municipio">
             <option value="">------------</option>
         </select>
     </div>
 
-    <div>
+    <div class="div-form">
         <label for="bairro">Bairro</label>
         <select class="form-control" name="bairro" id="bairro">
             <option value="">------------</option>
         </select>
     </div>
+
+    <input type="submit" value="Enviar">
 </form>
